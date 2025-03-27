@@ -41,15 +41,13 @@
                     <option value="id">ID</option>
                     <option value="description">Descripción</option>
                 </select>
-                <div class="toggle">
-                    <input type="checkbox" id="previewToggle">
-                    <label for="previewToggle">
-                        <span class="track"></span>
-                        <span class="thumb">
-                            <span class="eye"></span>
-                        </span>
-                    </label>
-                </div>
+                <select id="statusFilter">
+                    <option value="all">Todos los estados</option>
+                    <option value="active">Activas</option>
+                    <option value="inactive">Inactivas</option>
+                    <option value="preview">Preview</option>
+                    <option value="false_positive">Falso Positivo</option>
+                </select>
             </div>
             <div id="rulesList"></div>
         </div>

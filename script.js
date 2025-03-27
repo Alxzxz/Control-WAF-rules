@@ -30,12 +30,11 @@ class WafRuleManager {
         
         const searchInput = document.getElementById('searchInput');
         const searchType = document.getElementById('searchType');
+        const statusFilter = document.getElementById('statusFilter');
         
         searchInput.addEventListener('input', () => this.filterRules());
         searchType.addEventListener('change', () => this.filterRules());
-
-        const previewToggle = document.getElementById('previewToggle');
-        previewToggle.addEventListener('change', () => this.filterRules());
+        statusFilter.addEventListener('change', () => this.filterRules());
     }
 
     async addRule() {
@@ -115,31 +114,72 @@ class WafRuleManager {
     async loadRules() {
         try {
             const response = await fetch(`${this.apiUrl}/rules`);
-            this.rules = await response.json();
+            console.log('API Response:', response); // Log completo de la respuesta
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const text = await response.text(); // Obtener respuesta como texto
+            console.log('Response text:', text); // Ver el texto crudo de la respuesta
+            
+            let data;
+            try {
+                data = JSON.parse(text); // Intentar parsear el JSON
+            } catch (e) {
+                console.error('Error parsing JSON:', e);
+                data = [];
+            }
+            
+            console.log('Parsed data:', data);
+            this.rules = Array.isArray(data) ? data : [];
+            console.log('Final rules array:', this.rules);
+            
             this.filterRules();
         } catch (error) {
-            console.error('Error loading rules:', error);
+            console.error('Error in loadRules:', error);
+            this.rules = [];
+            this.filterRules();
         }
     }
 
     filterRules() {
         const searchInput = document.getElementById('searchInput');
         const searchType = document.getElementById('searchType');
-        const previewToggle = document.getElementById('previewToggle');
+        const statusFilter = document.getElementById('statusFilter');
         const searchText = searchInput.value.toLowerCase();
         const filterType = searchType.value;
+        const statusValue = statusFilter.value;
+
+        if (!Array.isArray(this.rules)) {
+            console.error('this.rules is not an array:', this.rules);
+            this.rules = [];
+        }
 
         const filteredRules = this.rules.filter(rule => {
-            const searchField = rule[filterType].toLowerCase();
+            const searchField = String(rule[filterType]).toLowerCase();
             const matchesSearch = searchField.includes(searchText);
-            const matchesPreview = previewToggle.checked ? 
-                rule.status === 'preview' : 
-                rule.status !== 'preview';  // Cambiar esta línea
-            return matchesSearch && matchesPreview;
+            const matchesStatus = statusValue === 'all' || rule.status === statusValue;
+            return matchesSearch && matchesStatus;
         });
 
         const rulesContainer = document.getElementById('rulesList');
+        if (!rulesContainer) {
+            console.error('Rules container not found!');
+            return;
+        }
+        
         rulesContainer.innerHTML = '';
+        
+        if (this.rules.length === 0) {
+            rulesContainer.innerHTML = '<p>No hay reglas disponibles</p>';
+            return;
+        }
+
+        if (filteredRules.length === 0) {
+            rulesContainer.innerHTML = '<p>No se encontraron reglas que coincidan con la búsqueda</p>';
+            return;
+        }
 
         filteredRules.forEach(rule => {
             const ruleElement = this.createRuleElement(rule);
