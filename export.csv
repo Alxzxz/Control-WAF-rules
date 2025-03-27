@@ -1,0 +1,80 @@
+Rule ID,Preview,Sensitivity,Section,OptOut
+owasp-crs-v030301-id942230-sqli,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id942100-sqli,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id942190-sqli,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id932110-rce,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id932150-rce,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id932115-rce,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id941120-xss,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id941130-xss,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id941100-xss,False,1,BANNED FRONT-IP,opt_out
+scannerdetection-v33-stable,False,1,BANNED FRONT-IP,N/A
+methodenforcement-v33-stable,False,1,BANNED FRONT-IP,N/A
+owasp-crs-v030301-id921110-protocolattack,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id921150-protocolattack,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id921120-protocolattack,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id933180-php,False,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id933210-php,False,1,BANNED FRONT-IP,opt_out
+sessionfixation-v33-stable,False,1,BANNED FRONT-IP,N/A
+owasp-crs-v030301-id942230-sqli,True,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id942100-sqli,True,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id941120-xss,True,1,BANNED FRONT-IP,opt_out
+owasp-crs-v030301-id932150-rce,True,1,BANNED FRONT-IP,N/A
+protocolattack-v33-stable,True,N/A,BANNED FRONT-IP,N/A
+php-v33-stable,True,N/A,BANNED FRONT-IP,N/A
+scannerdetection-v33-stable,True,1,BANNED-WAF,N/A
+methodenforcement-v33-stable,True,N/A,BANNED-WAF,N/A
+protocolattack-v33-stable,True,1,BANNED-WAF,N/A
+php-v33-stable,True,1,BANNED-WAF,N/A
+php-v33-stable,True,1,BANNED-WAF,N/A
+sqli-v33-stable,True,1,BANNED-WAF,N/A
+lfi-v33-stable,True,1,BANNED-WAF,N/A
+rce-v33-stable,True,1,BANNED-WAF,N/A
+rfi-v33-stable,True,1,BANNED-WAF,N/A
+xss-v33-stable,True,1,BANNED-WAF,N/A
+sessionfixation-v33-stable,True,N/A,BANNED-WAF,N/A
+owasp-crs-v030302-id942200-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942260-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942370-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942430-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942431-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942432-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942460-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942490-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942330-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942340-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942130-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+xss-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+lfi-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+rfi-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+rce-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+methodenforcement-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+scannerdetection-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id921151-protocolattack,True,N/A,ELASTIC CLUSTER WEB,N/A
+php-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+sessionfixation-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+java-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+nodejs-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942200-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942260-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942370-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942430-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942431-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942432-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942460-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942490-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942330-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942340-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942130-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id942110-sqli,True,N/A,ELASTIC CLUSTER WEB,N/A
+xss-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+lfi-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+rfi-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+rce-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+methodenforcement-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+scannerdetection-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id921151-protocolattack,True,N/A,ELASTIC CLUSTER WEB,N/A
+owasp-crs-v030301-id933151-php,True,1,ELASTIC CLUSTER WEB,opt_out
+sessionfixation-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+java-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
+nodejs-v33-stable,True,N/A,ELASTIC CLUSTER WEB,N/A
