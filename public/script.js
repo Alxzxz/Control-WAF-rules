@@ -22,7 +22,7 @@ document.getElementById('newRuleForm').addEventListener('submit', async function
         name: document.getElementById('ruleName').value,
         description: document.getElementById('ruleDescription').value,
         active: document.getElementById('ruleActive').value,
-        severity: parseInt(document.getElementById('ruleSeverity').value),
+        sensibility: parseInt(document.getElementById('rulesensibility').value),
         group: document.getElementById('ruleGroup').value,
         comments: []
     };
@@ -67,7 +67,7 @@ function updateRulesList() {
         ruleElement.className = 'rule-card';
         ruleElement.innerHTML = `
             <h3>${rule.name}</h3>
-            <p>Estado: ${getStatusLabel(rule.active)} | Severidad ${rule.severity}</p>
+            <p>Estado: ${getStatusLabel(rule.active)} | Sensibilidad ${rule.sensibility}</p>
             <p>Grupo: ${rule.group || 'Sin grupo'}</p>
             <p>ID: ${rule.ruleId}</p>
             <p>Descripción: ${rule.description || 'Sin descripción'}</p>
@@ -134,7 +134,7 @@ function editRule(ruleId) {
     document.getElementById('editRuleId').value = rule.ruleId;
     document.getElementById('editRuleDescription').value = rule.description;
     document.getElementById('editRuleActive').value = rule.active;
-    document.getElementById('editRuleSeverity').value = rule.severity;
+    document.getElementById('editRulesensibility').value = rule.sensibility;
     document.getElementById('editRuleGroup').value = rule.group;
 
     // Mostrar el modal
@@ -157,7 +157,7 @@ document.getElementById('editRuleForm').addEventListener('submit', async functio
         ruleId: document.getElementById('editRuleId').value,
         description: document.getElementById('editRuleDescription').value,
         active: document.getElementById('editRuleActive').value,
-        severity: parseInt(document.getElementById('editRuleSeverity').value),
+        sensibility: parseInt(document.getElementById('editRulesensibility').value),
         group: document.getElementById('editRuleGroup').value
     };
 
@@ -236,7 +236,7 @@ function filterRules() {
         ruleElement.className = 'rule-card';
         ruleElement.innerHTML = `
             <h3>${rule.name}</h3>
-            <p>Estado: ${getStatusLabel(rule.active)} | Severidad ${rule.severity}</p>
+            <p>Estado: ${getStatusLabel(rule.active)} | Sensibilidad ${rule.sensibility}</p>
             <p>Grupo ${rule.group}</p>
             <p>ID: ${rule.ruleId}</p>
             <p>Descripción: ${rule.description}</p>

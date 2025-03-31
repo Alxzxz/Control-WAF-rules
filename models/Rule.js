@@ -9,7 +9,7 @@ const ruleSchema = new mongoose.Schema({
     enum: ['active', 'inactive', 'testing', 'disabled', 'pending'],
     default: 'inactive' 
   },
-  severity: { type: Number, required: true, min: 1, max: 3 },
+  sensibility: { type: Number, required: true, min: 1, max: 10 },
   group: String,
   comments: [{
     text: String,

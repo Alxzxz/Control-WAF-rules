@@ -57,7 +57,7 @@ router.put('/:id', async (req, res) => {
       name: req.body.name,
       description: req.body.description,
       active: req.body.active,
-      severity: req.body.severity,
+      sensibility: req.body.sensibility,
       group: req.body.group
     };
 

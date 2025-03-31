@@ -25,10 +25,11 @@
                         <option value="testing">Preview</option>
                         <option value="disabled">Deshabilitada</option>
                     </select>
-                    <select id="ruleSeverity">
-                        <option value="1">Severidad 1 (Baja)</option>
-                        <option value="2">Severidad 2 (Media)</option>
-                        <option value="3">Severidad 3 (Alta)</option>
+                    <select id="rulesensibility">
+                        <option value="1">Sensibilidad 1 (Baja)</option>
+                        <option value="2">Sensibilidad 2 (Media)</option>
+                        <option value="3">Sensibilidad 3 (Alta)</option>
+                        <option value="4">Sensibilidad 4 (Muy alta)</option>
                     </select>
                     <select id="ruleGroup">
                         <option value="">Seleccionar Grupo</option>
@@ -60,9 +61,9 @@
                 </select>
             </div>
             <div id="rulesList">
-                <div class="rule-card severity-${rule.severity}">
+                <div class="rule-card sensibility-${rule.sensibility}">
                     <h3>${rule.name}</h3>
-                    <p class="status-${rule.active}">Estado: ${getStatusLabel(rule.active)} | Severidad ${rule.severity}</p>
+                    <p class="status-${rule.active}">Estado: ${getStatusLabel(rule.active)} | Sensibilidad ${rule.sensibility}</p>
                 </div>
             </div>
         </div>
@@ -84,10 +85,11 @@
                         <option value="testing">Preview</option>
                         <option value="disabled">Deshabilitada</option>
                     </select>
-                    <select id="editRuleSeverity">
-                        <option value="1">Severidad 1 (Baja)</option>
-                        <option value="2">Severidad 2 (Media)</option>
-                        <option value="3">Severidad 3 (Alta)</option>
+                    <select id="editRulesensibility">
+                        <option value="1">Sensibilidad 1 (Baja)</option>
+                        <option value="2">Sensibilidad 2 (Media)</option>
+                        <option value="3">Sensibilidad 3 (Alta)</option>
+                        <option value="4">Sensibilidad 4 (Muy alta)</option>
                     </select>
                     <select id="editRuleGroup">
                         <option value="">Seleccionar Grupo</option>

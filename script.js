@@ -17,7 +17,7 @@ document.getElementById('newRuleForm').addEventListener('submit', async function
         name: document.getElementById('ruleName').value,
         description: document.getElementById('ruleDescription').value,
         active: document.getElementById('ruleActive').checked,
-        severity: parseInt(document.getElementById('ruleSeverity').value),
+        sensibility: parseInt(document.getElementById('rulesensibility').value),
         group: document.getElementById('ruleGroup').value
     };
     
@@ -46,7 +46,7 @@ function updateRulesList() {
         ruleElement.className = 'rule-card';
         ruleElement.innerHTML = `
             <h3>${rule.name}</h3>
-            <p>${rule.active ? 'active' : 'inactive'} Severidad ${rule.severity}</p>
+            <p>${rule.active ? 'active' : 'inactive'} Sensibilidad ${rule.sensibility}</p>
             <p>Grupo ${rule.group}</p>
             <p>ID: ${rule.ruleId}</p>
             <p>Descripción: ${rule.description}</p>

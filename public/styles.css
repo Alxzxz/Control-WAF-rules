@@ -192,10 +192,11 @@ button:hover {
 .status-disabled { color: var(--danger); }
 .status-pending { color: var(--secondary); }
 
-/* Severidad indicadores */
-.severity-1 { border-left: 4px solid var(--success); }
-.severity-2 { border-left: 4px solid var(--warning); }
-.severity-3 { border-left: 4px solid var(--danger); }
+/* Sensibilidad indicadores */
+.sensibility-1 { border-left: 4px solid var(--success); }
+.sensibility-2 { border-left: 4px solid var(--warning); }
+.sensibility-3 { border-left: 4px solid var(--danger); }
+.sensibility-4 { border-left: 4px solid var(--accent); }
 
 /* Estilos para campos en línea */
 .form-group:nth-child(2) {
