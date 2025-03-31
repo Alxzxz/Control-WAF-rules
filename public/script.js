@@ -126,16 +126,87 @@ async function addComment(ruleId) {
 }
 
 function editRule(ruleId) {
-    const rule = rules.find(r => r.ruleId === ruleId);
-    // Implement edit functionality
+    const rule = rules.find(r => r._id === ruleId);
+    if (!rule) return;
+
+    // Rellenar el formulario con los datos actuales
+    document.getElementById('editRuleName').value = rule.name;
+    document.getElementById('editRuleId').value = rule.ruleId;
+    document.getElementById('editRuleDescription').value = rule.description;
+    document.getElementById('editRuleActive').value = rule.active;
+    document.getElementById('editRuleSeverity').value = rule.severity;
+    document.getElementById('editRuleGroup').value = rule.group;
+
+    // Mostrar el modal
+    document.getElementById('editModal').style.display = 'block';
+
+    // Guardar el ID de la regla actual para la actualización
+    document.getElementById('editRuleForm').dataset.ruleId = ruleId;
+}
+
+function closeEditModal() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+document.getElementById('editRuleForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const ruleId = this.dataset.ruleId;
+
+    const updatedRule = {
+        name: document.getElementById('editRuleName').value,
+        ruleId: document.getElementById('editRuleId').value,
+        description: document.getElementById('editRuleDescription').value,
+        active: document.getElementById('editRuleActive').value,
+        severity: parseInt(document.getElementById('editRuleSeverity').value),
+        group: document.getElementById('editRuleGroup').value
+    };
+
+    try {
+        const response = await fetch(`/api/rules/${ruleId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedRule)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        await loadRules();
+        closeEditModal();
+    } catch (error) {
+        console.error('Error updating rule:', error);
+        alert('Error al actualizar la regla: ' + error.message);
+    }
+});
+
+// Cerrar el modal al hacer clic fuera de él
+window.onclick = function(event) {
+    const modal = document.getElementById('editModal');
+    if (event.target === modal) {
+        closeEditModal();
+    }
 }
 
 async function deleteRule(ruleId) {
-    try {
-        await fetch(`/api/rules/${ruleId}`, { method: 'DELETE' });
-        await loadRules();
-    } catch (error) {
-        console.error('Error deleting rule:', error);
+    const rule = rules.find(r => r._id === ruleId);
+    if (!rule) return;
+
+    const confirmDelete = confirm(`¿Estás seguro de que deseas eliminar la regla "${rule.name}"?\nEsta acción no se puede deshacer.`);
+    
+    if (confirmDelete) {
+        try {
+            const response = await fetch(`/api/rules/${ruleId}`, { method: 'DELETE' });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            await loadRules();
+        } catch (error) {
+            console.error('Error deleting rule:', error);
+            alert('Error al eliminar la regla: ' + error.message);
+        }
     }
 }
 

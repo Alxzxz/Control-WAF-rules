@@ -73,7 +73,55 @@
                     <option value="DOS Protection">DOS Protection</option>
                 </select>
             </div>
-            <div id="rulesList"></div>
+            <div id="rulesList">
+                <div class="rule-card severity-${rule.severity}">
+                    <h3>${rule.name}</h3>
+                    <p class="status-${rule.active}">Estado: ${getStatusLabel(rule.active)} | Severidad ${rule.severity}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de edición -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Regla</h2>
+            <form id="editRuleForm">
+                <div class="form-group">
+                    <input type="text" id="editRuleName" placeholder="Nombre de la regla" required>
+                    <input type="text" id="editRuleId" placeholder="ID de la regla" required readonly>
+                    <textarea id="editRuleDescription" placeholder="Descripción"></textarea>
+                </div>
+                <div class="form-group">
+                    <select id="editRuleActive">
+                        <option value="active">Activa</option>
+                        <option value="inactive">Inactiva</option>
+                        <option value="testing">En Pruebas</option>
+                        <option value="disabled">Deshabilitada</option>
+                        <option value="pending">Pendiente</option>
+                    </select>
+                    <select id="editRuleSeverity">
+                        <option value="1">Severidad 1 (Baja)</option>
+                        <option value="2">Severidad 2 (Media)</option>
+                        <option value="3">Severidad 3 (Alta)</option>
+                    </select>
+                    <select id="editRuleGroup">
+                        <option value="">Seleccionar Grupo</option>
+                        <option value="SQL Injection">SQL Injection</option>
+                        <option value="XSS">Cross-Site Scripting (XSS)</option>
+                        <option value="File Inclusion">File Inclusion</option>
+                        <option value="Remote Code Execution">Remote Code Execution</option>
+                        <option value="Security Misconfiguration">Security Misconfiguration</option>
+                        <option value="Information Disclosure">Information Disclosure</option>
+                        <option value="Access Control">Access Control</option>
+                        <option value="Authentication">Authentication</option>
+                        <option value="DOS Protection">DOS Protection</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit">Guardar Cambios</button>
+                    <button type="button" onclick="closeEditModal()">Cancelar</button>
+                </div>
+            </form>
         </div>
     </div>
     <script src="/script.js"></script>

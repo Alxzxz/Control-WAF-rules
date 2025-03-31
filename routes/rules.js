@@ -46,6 +46,28 @@ router.patch('/:id/comments', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const rule = await Rule.findById(req.params.id);
+    if (!rule) {
+      return res.status(404).json({ message: 'Rule not found' });
+    }
+
+    const updates = {
+      name: req.body.name,
+      description: req.body.description,
+      active: req.body.active,
+      severity: req.body.severity,
+      group: req.body.group
+    };
+
+    const updatedRule = await Rule.findByIdAndUpdate(req.params.id, updates, { new: true });
+    res.json(updatedRule);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 router.delete('/:id', async (req, res) => {
   try {
     await Rule.findByIdAndDelete(req.params.id);
