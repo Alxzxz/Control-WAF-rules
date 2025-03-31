@@ -101,7 +101,7 @@ function getStatusLabel(status) {
     const labels = {
         'active': 'Activa',
         'inactive': 'Inactiva',
-        'testing': 'En Pruebas',
+        'testing': 'Preview',
         'disabled': 'Deshabilitada',
         'pending': 'Pendiente'
     };
