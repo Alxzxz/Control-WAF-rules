@@ -157,8 +157,19 @@ class WafRuleManager {
         }
 
         const filteredRules = this.rules.filter(rule => {
-            const searchField = String(rule[filterType]).toLowerCase();
-            const matchesSearch = searchField.includes(searchText);
+            let matchesSearch = false;
+            
+            if (filterType === 'comments') {
+                // Buscar en los comentarios
+                matchesSearch = rule.comments.some(comment => 
+                    comment.text.toLowerCase().includes(searchText)
+                );
+            } else {
+                // Búsqueda normal en otros campos
+                const searchField = String(rule[filterType]).toLowerCase();
+                matchesSearch = searchField.includes(searchText);
+            }
+
             const matchesStatus = statusValue === 'all' || rule.status === statusValue;
             return matchesSearch && matchesStatus;
         });
