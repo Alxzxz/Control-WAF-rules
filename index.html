@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Reglas WAF</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Control de Reglas WAF</h1>
+        
+        <div class="new-rule-section">
+            <h2>Añadir Nueva Regla</h2>
+            <form id="newRuleForm">
+                <div class="form-group">
+                    <input type="text" id="ruleName" placeholder="Nombre de la regla" required>
+                    <input type="text" id="ruleId" placeholder="ID de la regla" required>
+                    <textarea id="ruleDescription" placeholder="Descripción"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="ruleActive"> Activa
+                    </label>
+                    <select id="ruleSeverity">
+                        <option value="1">Severidad 1 (Baja)</option>
+                        <option value="2">Severidad 2 (Media)</option>
+                        <option value="3">Severidad 3 (Alta)</option>
+                    </select>
+                    <input type="text" id="ruleGroup" placeholder="Grupo">
+                </div>
+                <button type="submit">Añadir Regla</button>
+            </form>
+        </div>
+
+        <div class="existing-rules-section">
+            <h2>Reglas Existentes</h2>
+            <div class="filters">
+                <input type="text" id="searchRules" placeholder="Buscar reglas...">
+                <select id="filterStatus">
+                    <option value="all">Todos los estados</option>
+                    <option value="active">Activa</option>
+                    <option value="inactive">Inactiva</option>
+                </select>
+                <input type="text" id="filterGroup" placeholder="Grupo">
+            </div>
+            <div id="rulesList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
