@@ -1,0 +1,240 @@
+/* Variables de color y estilos base */
+:root {
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --accent: #3498db;
+    --success: #27ae60;
+    --warning: #f1c40f;
+    --danger: #e74c3c;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--secondary);
+    background: var(--gray-100);
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.01em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 15px;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.new-rule-section, .existing-rules-section {
+    background: white;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+button {
+    background: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+button:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.rule-card {
+    background: white;
+    padding: 1rem;
+    margin: 0.75rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.rule-card:hover {
+    transform: translateY(-2px);
+}
+
+.rule-card h3 {
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.rule-card p {
+    margin: 0.25rem 0;
+    line-height: 1.4;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background: var(--gray-200);
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.rule-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.rule-actions button {
+    flex: 1;
+}
+
+.rule-actions button:last-child {
+    background: var(--danger);
+    transition: all 0.3s ease;
+}
+
+.rule-actions button:last-child:hover {
+    background: #c0392b;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.comments-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--gray-200);
+}
+
+.comment {
+    background: var(--gray-100);
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    font-size: 0.9rem;
+}
+
+.comment-text {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #666;
+    display: block;
+}
+
+.comments-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 1rem;
+    margin: 0.5rem 0;
+}
+
+/* Estados de reglas */
+.status-active { color: var(--success); }
+.status-inactive { color: var(--warning); }
+.status-testing { color: var(--accent); }
+.status-disabled { color: var(--danger); }
+.status-pending { color: var(--secondary); }
+
+/* Sensibilidad indicadores */
+.sensibility-1 { border-left: 4px solid var(--success); }
+.sensibility-2 { border-left: 4px solid var(--warning); }
+.sensibility-3 { border-left: 4px solid var(--danger); }
+.sensibility-4 { border-left: 4px solid var(--accent); }
+
+/* Estilos para campos en línea */
+.form-group:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 2rem;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow);
+    position: relative;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.modal-actions button:last-child {
+    background: var(--gray-300);
+    color: var(--secondary);
+}

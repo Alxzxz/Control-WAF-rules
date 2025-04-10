@@ -10,45 +10,40 @@
     <div class="container">
         <h1>Control de Reglas WAF</h1>
         
-        <div class="add-rule-section">
+        <div class="new-rule-section">
             <h2>Añadir Nueva Regla</h2>
-            <form id="addRuleForm">
-                <input type="text" id="ruleName" placeholder="Nombre de la regla" required>
-                <input type="text" id="ruleId" placeholder="ID de la regla" required>
-                <textarea id="ruleDescription" placeholder="Descripción" required></textarea>
-                <select id="ruleStatus" required>
-                    <option value="active">Activa</option>
-                    <option value="inactive">Inactiva</option>
-                    <option value="preview">Preview</option>
-                    <option value="false_positive">Falso Positivo</option>
-                </select>
-                <select id="ruleSeverity" required>
-                    <option value="1">Severidad 1 (Baja)</option>
-                    <option value="2">Severidad 2 (Media)</option>
-                    <option value="3">Severidad 3 (Alta)</option>
-                    <option value="4">Severidad 4 (Crítica)</option>
-                </select>
+            <form id="newRuleForm">
+                <div class="form-group">
+                    <input type="text" id="ruleName" placeholder="Nombre de la regla" required>
+                    <input type="text" id="ruleId" placeholder="ID de la regla" required>
+                    <textarea id="ruleDescription" placeholder="Descripción"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="ruleActive"> Activa
+                    </label>
+                    <select id="rulesensibility">
+                        <option value="1">Sensibilidad 1 (Baja)</option>
+                        <option value="2">Sensibilidad 2 (Media)</option>
+                        <option value="3">Sensibilidad 3 (Alta)</option>
+                        <option value="4">Sensibilidad 4 (Muy alta)</option>
+                    </select>
+                    <input type="text" id="ruleGroup" placeholder="Grupo">
+                </div>
                 <button type="submit">Añadir Regla</button>
             </form>
         </div>
 
-        <div class="rules-list">
+        <div class="existing-rules-section">
             <h2>Reglas Existentes</h2>
-            <div class="search-section">
-                <input type="text" id="searchInput" placeholder="Buscar reglas...">
-                <select id="searchType">
-                    <option value="name">Nombre</option>
-                    <option value="id">ID</option>
-                    <option value="description">Descripción</option>
-                    <option value="comments">Comentarios</option>
-                </select>
-                <select id="statusFilter">
+            <div class="filters">
+                <input type="text" id="searchRules" placeholder="Buscar reglas...">
+                <select id="filterStatus">
                     <option value="all">Todos los estados</option>
-                    <option value="active">Activas</option>
-                    <option value="inactive">Inactivas</option>
-                    <option value="preview">Preview</option>
-                    <option value="false_positive">Falso Positivo</option>
+                    <option value="active">Activa</option>
+                    <option value="inactive">Inactiva</option>
                 </select>
+                <input type="text" id="filterGroup" placeholder="Grupo">
             </div>
             <div id="rulesList"></div>
         </div>
