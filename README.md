@@ -1,6 +1,6 @@
 Como iniciarlo?
 
-npm run dev y ir a http://localhost:3000/
+npm run dev y ir a http://127.0.0.1:3000/
 
 
 

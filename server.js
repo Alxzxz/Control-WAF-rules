@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(express.static('.')); // Añadir esta línea para servir archivos desde la raíz
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/waf-rules')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/waf-rules')
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
