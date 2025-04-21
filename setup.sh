@@ -110,8 +110,6 @@ read -p "Ejecutar aplicación (s/n): " RUN_APP
 
 if [ "$RUN_APP" = "s" ]; then
     CURRENT_DIR=$(pwd)
-    echo -e "${YELLOW}Navegando al directorio de la aplicación...${NC}"
-    cd /home/alejandromoyo/work/Control-WAF-rules/
     check_error "No se pudo encontrar el directorio de la aplicación"
 
     echo -e "${YELLOW}Iniciando la aplicación con Docker Compose...${NC}"
