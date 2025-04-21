@@ -46,13 +46,13 @@ check_error "No se pudieron instalar los paquetes necesarios"
 
 echo -e "${YELLOW}Añadiendo clave GPG de Docker...${NC}"
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 check_error "No se pudo añadir la clave GPG de Docker"
 
 echo -e "${YELLOW}Añadiendo repositorio de Docker...${NC}"
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 check_error "No se pudo añadir el repositorio de Docker"
